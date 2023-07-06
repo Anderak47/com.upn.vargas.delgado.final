@@ -10,8 +10,8 @@ import java.util.List;
 
 @Dao
 public interface CartasDao {
-    @Query("SELECT * FROM cartas WHERE duelistaID = :duelistaID")
-    List<Cartas> getDuelistaByDuelistaId(long duelistaID);
+    @Query("SELECT * FROM cartas WHERE duelistaID = :duelistaId")
+    List<Cartas> getDuelistaByDuelistaId(long duelistaId);
 
 
     @Insert

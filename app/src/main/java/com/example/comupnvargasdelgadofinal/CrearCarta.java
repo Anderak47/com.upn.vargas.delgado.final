@@ -28,7 +28,7 @@ public class CrearCarta extends AppCompatActivity {
         setContentView(R.layout.activity_crear_carta);
 
         // Obtener la cuenta seleccionada (puedes obtenerla a través de Intent o de cualquier otra forma)
-        cuentaSeleccionada = getIntent().getLongExtra("cuenta_id", -1);
+        cuentaSeleccionada = getIntent().getLongExtra("duelistaID", -1);
 
         // Obtener la instancia del DAO de Movimiento
         cartasDao = AppDatabase.getInstance(getApplicationContext()).cartasDao();

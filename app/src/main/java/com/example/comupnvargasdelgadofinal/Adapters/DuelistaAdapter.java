@@ -54,8 +54,6 @@ public class DuelistaAdapter extends RecyclerView.Adapter<DuelistaAdapter.Dealis
             itemView.setOnClickListener(this);
 
 
-
-
         }
 
         public void bind(Duelista duelista) {

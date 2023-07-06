@@ -42,11 +42,11 @@ public class ListaCartasActivity extends AppCompatActivity {
         cargarCartas(dueistaId);
 
     }
-    private void cargarCartas(final long cuentaId) {
+    private void cargarCartas(final long duelistaId) {
         AsyncTask<Void, Void, List<Cartas>> task = new AsyncTask<Void, Void, List<Cartas>>() {
             @Override
             protected List<Cartas> doInBackground(Void... voids) {
-                return cartasDao.getDuelistaByDuelistaId(cuentaId);
+                return cartasDao.getDuelistaByDuelistaId(duelistaId);
             }
 
             @Override

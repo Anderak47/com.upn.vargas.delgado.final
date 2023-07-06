@@ -37,7 +37,7 @@ public class DetalleDuelistaMain extends AppCompatActivity {
                 Intent intent = new Intent(DetalleDuelistaMain.this, CrearCarta.class);
 
                 // Pasa el cuentaId como extra en el Intent
-                intent.putExtra("cuenta_id", duelistaId);
+                intent.putExtra("duelistaID", duelistaId);
 
                 // Inicia la actividad RegistroMovimientoActivity
                 startActivity(intent);
@@ -51,10 +51,10 @@ public class DetalleDuelistaMain extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Abrir la actividad ListaMovimientosActivity y pasar el cuentaId
-                Intent intent = new Intent(DetalleDuelistaMain.this, DetalleDuelistaMain.class);
-                intent.putExtra("cuenta_id", duelistaId);
+                Intent intent = new Intent(DetalleDuelistaMain.this, ListaCartasActivity.class);
+                intent.putExtra("duelistaID", duelistaId);
                 startActivity(intent);
-                Toast.makeText(DetalleDuelistaMain.this, "Ver movimientos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DetalleDuelistaMain.this, "Ver lista", Toast.LENGTH_SHORT).show();
 
             }
         });

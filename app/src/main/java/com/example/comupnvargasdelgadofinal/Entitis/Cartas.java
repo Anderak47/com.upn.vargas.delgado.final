@@ -23,6 +23,7 @@ public class Cartas {
         this.puntoDefensa = puntoDefensa;
     }
 
+
     public Cartas() {
 
     }
