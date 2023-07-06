@@ -11,6 +11,8 @@ import com.example.comupnvargasdelgadofinal.DB.AppDatabase;
 import com.example.comupnvargasdelgadofinal.Entitis.Duelista;
 import com.example.comupnvargasdelgadofinal.Service.DuelistaDao;
 
+import java.util.concurrent.Executors;
+
 public class CrearDuelista extends AppCompatActivity {
     private EditText etNombreDuelista;
     private Button btnRegistrarDuelista;
@@ -32,10 +34,10 @@ public class CrearDuelista extends AppCompatActivity {
                 String nombreDuelista = etNombreDuelista.getText().toString().trim();
                 if (!nombreDuelista.isEmpty()) {
 
-                    Duelista cuenta = new Duelista(nombreDuelista);
+                    Duelista duelista = new Duelista(nombreDuelista);
 
                     // Guardar la cuenta en la base de datos
-                    //guardarCuenta(cuenta);
+                    guardarDuelista(duelista);
 
                     Toast.makeText(CrearDuelista.this, "crear duelista", Toast.LENGTH_SHORT).show();
                     etNombreDuelista.setText("");
@@ -43,6 +45,16 @@ public class CrearDuelista extends AppCompatActivity {
 
                     Toast.makeText(CrearDuelista.this, "Ingrese un nombre duelista", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+    }
+    private void guardarDuelista(final Duelista duelista) {
+        // Ejecutar la operación en un hilo de fondo
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                // Insertar la cuenta en la base de datos
+                duelistaDao.insertDuelista(duelista);
             }
         });
     }

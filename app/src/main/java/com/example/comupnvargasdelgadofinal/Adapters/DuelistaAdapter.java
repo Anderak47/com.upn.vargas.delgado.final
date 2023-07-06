@@ -41,17 +41,17 @@ public class DuelistaAdapter extends RecyclerView.Adapter<DuelistaAdapter.Dealis
     }
 
     public class DealistaViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        //private TextView txtNombreCuenta;
+        private TextView txtNombreDuelista;
 
         public DealistaViewHolder(@NonNull View itemView) {
             super(itemView);
-            //txtNombreCuenta = itemView.findViewById(R.id.txt_nombre_cuenta);
+            txtNombreDuelista = itemView.findViewById(R.id.txt_nombre_duelista);
             itemView.setOnClickListener(this);
         }
 
         public void bind(Duelista duelista) {
 
-            //txtNombreCuenta.setText(cuenta.getNombre());
+            txtNombreDuelista.setText(duelista.getNombre());
         }
 
         @Override

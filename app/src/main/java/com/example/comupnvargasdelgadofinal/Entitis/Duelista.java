@@ -17,15 +17,14 @@ public class Duelista {
     @Ignore
     private List<Cartas> cartas;
 
-    public Duelista(long id, String nombre) {
-        this.id = id;
+    public Duelista(String nombre) {
+
         this.nombre = nombre;
         this.cartas = new ArrayList<>();
-
     }
 
-    public Duelista(String nombre) {
-        this.nombre = nombre;
+    public Duelista() {
+
     }
 
     public long getId() {

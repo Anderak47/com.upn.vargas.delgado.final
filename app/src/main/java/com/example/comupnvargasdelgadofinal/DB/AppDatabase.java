@@ -6,11 +6,12 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.example.comupnvargasdelgadofinal.Entitis.Cartas;
 import com.example.comupnvargasdelgadofinal.Entitis.Duelista;
 import com.example.comupnvargasdelgadofinal.Service.CartasDao;
 import com.example.comupnvargasdelgadofinal.Service.DuelistaDao;
 
-
+@Database(entities = {Duelista.class, Cartas.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase instance;

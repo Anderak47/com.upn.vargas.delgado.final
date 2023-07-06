@@ -10,15 +10,15 @@ public class Cartas {
     public long id;
     private long duelistaId;
     public String Nombre;
-    private int puntoAtaque;
-    private int puntoDefensa;
+    private long puntoAtaque;
+    private long puntoDefensa;
     private String imagen;
-    private String latitud;
-    private String longitud;
+    private Double latitud;
+    private Double longitud;
 
-    public Cartas(long id, String nombre, int puntoAtaque, int puntoDefensa, String imagen, String latitud, String longitud) {
-        this.id = id;
-        Nombre = nombre;
+    public Cartas(long duelistaId, String nombre, long puntoAtaque, long puntoDefensa, String imagen, Double latitud, Double longitud) {
+        this.duelistaId = duelistaId;
+        this.Nombre = nombre;
         this.puntoAtaque = puntoAtaque;
         this.puntoDefensa = puntoDefensa;
         this.imagen = imagen;
@@ -26,13 +26,8 @@ public class Cartas {
         this.longitud = longitud;
     }
 
-    public Cartas(String nombre, int puntoAtaque, int puntoDefensa, String imagen, String latitud, String longitud) {
-        Nombre = nombre;
-        this.puntoAtaque = puntoAtaque;
-        this.puntoDefensa = puntoDefensa;
-        this.imagen = imagen;
-        this.latitud = latitud;
-        this.longitud = longitud;
+    public Cartas() {
+
     }
 
     public long getId() {
@@ -43,6 +38,14 @@ public class Cartas {
         this.id = id;
     }
 
+    public long getDuelistaId() {
+        return duelistaId;
+    }
+
+    public void setDuelistaId(long duelistaId) {
+        this.duelistaId = duelistaId;
+    }
+
     public String getNombre() {
         return Nombre;
     }
@@ -51,19 +54,19 @@ public class Cartas {
         Nombre = nombre;
     }
 
-    public int getPuntoAtaque() {
+    public long getPuntoAtaque() {
         return puntoAtaque;
     }
 
-    public void setPuntoAtaque(int puntoAtaque) {
+    public void setPuntoAtaque(long puntoAtaque) {
         this.puntoAtaque = puntoAtaque;
     }
 
-    public int getPuntoDefensa() {
+    public long getPuntoDefensa() {
         return puntoDefensa;
     }
 
-    public void setPuntoDefensa(int puntoDefensa) {
+    public void setPuntoDefensa(long puntoDefensa) {
         this.puntoDefensa = puntoDefensa;
     }
 
@@ -75,19 +78,19 @@ public class Cartas {
         this.imagen = imagen;
     }
 
-    public String getLatitud() {
+    public Double getLatitud() {
         return latitud;
     }
 
-    public void setLatitud(String latitud) {
+    public void setLatitud(Double latitud) {
         this.latitud = latitud;
     }
 
-    public String getLongitud() {
+    public Double getLongitud() {
         return longitud;
     }
 
-    public void setLongitud(String longitud) {
+    public void setLongitud(Double longitud) {
         this.longitud = longitud;
     }
 }
