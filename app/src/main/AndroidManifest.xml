@@ -31,7 +31,7 @@
             android:name=".CrearCarta"
             android:exported="false" />
         <activity
-            android:name=".ListaMovimientoActivity"
+            android:name=".ListaCartasActivity"
             android:exported="false" />
         <activity
             android:name=".ListaDuelistaActivity"
