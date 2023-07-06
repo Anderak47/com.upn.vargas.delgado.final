@@ -23,7 +23,6 @@ public class Duelista {
         this.cartas = new ArrayList<>();
     }
 
-
     public long getId() {
         return id;
     }

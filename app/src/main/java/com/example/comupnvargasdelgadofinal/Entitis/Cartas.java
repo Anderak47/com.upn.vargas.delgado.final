@@ -2,6 +2,7 @@ package com.example.comupnvargasdelgadofinal.Entitis;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "cartas", foreignKeys = @ForeignKey(entity = Duelista.class, parentColumns = "id", childColumns = "duelistaId", onDelete = ForeignKey.CASCADE))
@@ -16,16 +17,14 @@ public class Cartas {
     private Double latitud;
     private Double longitud;
 
-    public Cartas(long duelistaId, String nombre, long puntoAtaque, long puntoDefensa) {
-        this.duelistaId = duelistaId;
-        Nombre = nombre;
-        this.puntoAtaque = puntoAtaque;
-        this.puntoDefensa = puntoDefensa;
-    }
-
-
     public Cartas() {
 
+    }
+    public Cartas(long duelistaId, String nombre, long puntoAtaque, long puntoDefensa) {
+        this.duelistaId = duelistaId;
+        this.Nombre = nombre;
+        this.puntoAtaque = puntoAtaque;
+        this.puntoDefensa = puntoDefensa;
     }
 
     public long getId() {

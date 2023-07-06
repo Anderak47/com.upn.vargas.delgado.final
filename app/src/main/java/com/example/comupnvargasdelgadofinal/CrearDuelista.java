@@ -1,6 +1,10 @@
 package com.example.comupnvargasdelgadofinal;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,13 +14,22 @@ import android.widget.Toast;
 import com.example.comupnvargasdelgadofinal.DB.AppDatabase;
 import com.example.comupnvargasdelgadofinal.Entitis.Duelista;
 import com.example.comupnvargasdelgadofinal.Service.DuelistaDao;
+import com.example.comupnvargasdelgadofinal.Service.DuelistaService;
+import com.example.comupnvargasdelgadofinal.Utils.RetrofitBuilder;
 
+import java.util.List;
 import java.util.concurrent.Executors;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class CrearDuelista extends AppCompatActivity {
     private EditText etNombreDuelista;
     private Button btnRegistrarDuelista;
     private DuelistaDao duelistaDao;
+    Retrofit retrofit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,10 +54,8 @@ public class CrearDuelista extends AppCompatActivity {
 
                     Toast.makeText(CrearDuelista.this, "crear duelista", Toast.LENGTH_SHORT).show();
                     etNombreDuelista.setText("");
-                } else {
-
-                    Toast.makeText(CrearDuelista.this, "Ingrese un nombre duelista", Toast.LENGTH_SHORT).show();
                 }
+                
             }
         });
     }
@@ -57,5 +68,9 @@ public class CrearDuelista extends AppCompatActivity {
                 duelistaDao.insertDuelista(duelista);
             }
         });
+    }
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
     }
 }
