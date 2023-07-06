@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.comupnvargasdelgadofinal.Adapters.DuelistaAdapter;
@@ -56,6 +57,13 @@ public class ListaDuelistaActivity extends AppCompatActivity implements Duelista
 
     @Override
     public void onCuentaClick(Duelista duelista) {
+        long duelistaId = duelista.getId();
+        String nombreCuenta = duelista.getNombre();
 
+        // Abrir la actividad DetalleCuentaActivity y pasar el ID y el nombre de la cuenta seleccionada
+        //Intent intent = new Intent(ListaDuelistaActivity.this, DetalleCuentaActivity.class);
+        //intent.putExtra("duelistaID", duelistaId);
+        //intent.putExtra("nombre_cuenta", nombreCuenta);
+        //startActivity(intent);
     }
 }

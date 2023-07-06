@@ -16,14 +16,11 @@ public class Cartas {
     private Double latitud;
     private Double longitud;
 
-    public Cartas(long duelistaId, String nombre, long puntoAtaque, long puntoDefensa, String imagen, Double latitud, Double longitud) {
+    public Cartas(long duelistaId, String nombre, long puntoAtaque, long puntoDefensa) {
         this.duelistaId = duelistaId;
-        this.Nombre = nombre;
+        Nombre = nombre;
         this.puntoAtaque = puntoAtaque;
         this.puntoDefensa = puntoDefensa;
-        this.imagen = imagen;
-        this.latitud = latitud;
-        this.longitud = longitud;
     }
 
     public Cartas() {

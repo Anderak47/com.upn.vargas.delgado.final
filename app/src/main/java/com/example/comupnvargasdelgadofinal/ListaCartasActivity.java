@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import com.example.comupnvargasdelgadofinal.Adapters.CartasAdapter;
@@ -38,7 +39,27 @@ public class ListaCartasActivity extends AppCompatActivity {
         recyclerView.setAdapter(cartasAdapter);
 
         long dueistaId = getIntent().getLongExtra("dueistaId", -1);
+        cargarCartas(dueistaId);
 
+    }
+    private void cargarCartas(final long cuentaId) {
+        AsyncTask<Void, Void, List<Cartas>> task = new AsyncTask<Void, Void, List<Cartas>>() {
+            @Override
+            protected List<Cartas> doInBackground(Void... voids) {
+                return cartasDao.getDuelistaByDuelistaId(cuentaId);
+            }
 
+            @Override
+            protected void onPostExecute(List<Cartas> movimientos) {
+                // Actualiza la lista de movimientos con los datos obtenidos de la base de datos
+                listaCartas.clear();
+                listaCartas.addAll(movimientos);
+
+                // Notifica al adaptador que los datos han cambiado
+                cartasAdapter.notifyDataSetChanged();
+            }
+        };
+
+        task.execute();
     }
 }
