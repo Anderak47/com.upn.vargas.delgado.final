@@ -61,9 +61,10 @@ public class ListaDuelistaActivity extends AppCompatActivity implements Duelista
         String nombreCuenta = duelista.getNombre();
 
         // Abrir la actividad DetalleCuentaActivity y pasar el ID y el nombre de la cuenta seleccionada
-        //Intent intent = new Intent(ListaDuelistaActivity.this, DetalleCuentaActivity.class);
-        //intent.putExtra("duelistaID", duelistaId);
-        //intent.putExtra("nombre_cuenta", nombreCuenta);
-        //startActivity(intent);
+        //ACA MIRAR
+        Intent intent = new Intent(ListaDuelistaActivity.this, DetalleDuelistaMain.class);
+        intent.putExtra("duelistaID", duelistaId);
+        intent.putExtra("nombreduelista", nombreCuenta);
+        startActivity(intent);
     }
 }

@@ -1,13 +1,16 @@
 package com.example.comupnvargasdelgadofinal.Adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.comupnvargasdelgadofinal.CrearCarta;
 import com.example.comupnvargasdelgadofinal.Entitis.Duelista;
 import com.example.comupnvargasdelgadofinal.R;
 
@@ -16,6 +19,8 @@ import java.util.List;
 public class DuelistaAdapter extends RecyclerView.Adapter<DuelistaAdapter.DealistaViewHolder>{
     private List<Duelista> duelistas;
     private OnCuentaClickListener listener;
+    private Button btncrearCarta;
+    private Button btnverDetalle;
 
     public DuelistaAdapter(List<Duelista> duelistas, OnCuentaClickListener listener) {
         this.duelistas = duelistas;
@@ -47,6 +52,10 @@ public class DuelistaAdapter extends RecyclerView.Adapter<DuelistaAdapter.Dealis
             super(itemView);
             txtNombreDuelista = itemView.findViewById(R.id.txt_nombre_duelista);
             itemView.setOnClickListener(this);
+
+
+
+
         }
 
         public void bind(Duelista duelista) {

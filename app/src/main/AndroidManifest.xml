@@ -28,6 +28,9 @@
         android:theme="@style/Theme.Comupnvargasdelgadofinal"
         tools:targetApi="31">
         <activity
+            android:name=".DetalleDuelistaMain"
+            android:exported="false" />
+        <activity
             android:name=".CrearCarta"
             android:exported="false" />
         <activity
