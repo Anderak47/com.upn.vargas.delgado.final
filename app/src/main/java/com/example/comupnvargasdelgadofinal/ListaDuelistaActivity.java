@@ -14,7 +14,7 @@ import com.example.comupnvargasdelgadofinal.Service.DuelistaDao;
 import java.util.List;
 import java.util.concurrent.Executors;
 
-public class ListaDuelistaActivity extends AppCompatActivity {
+public class ListaDuelistaActivity extends AppCompatActivity implements DuelistaAdapter.OnCuentaClickListener{
     private RecyclerView recyclerView;
     private DuelistaAdapter duelistaAdapter;
     private DuelistaDao duelistaDao;
@@ -39,14 +39,14 @@ public class ListaDuelistaActivity extends AppCompatActivity {
             @Override
             public void run() {
                 // Obtener las cuentas registradas desde la base de datos
-                List<Duelista> cuentas = duelistaDao.getAllDuelista();
+                List<Duelista>  duelista = duelistaDao.getAllDuelista();
 
                 // Actualizar el adaptador en el hilo principal
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         // Crear y configurar el adaptador de cuentas
-                        //duelistaAdapter = new DuelistaAdapter(cuentas, ListaDuelistaActivity.this);
+                        duelistaAdapter = new DuelistaAdapter(duelista, ListaDuelistaActivity.this);
                         recyclerView.setAdapter(duelistaAdapter);
                     }
                 });
@@ -54,4 +54,8 @@ public class ListaDuelistaActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onCuentaClick(Duelista duelista) {
+
+    }
 }
